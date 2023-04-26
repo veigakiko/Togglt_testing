@@ -1,0 +1,16 @@
+import pandas as pd
+import requests
+from requests.auth import HTTPBasicAuth
+from urllib.request import urlopen
+import json
+
+response = requests.get('https://api.track.toggl.com/api/v9/me', auth=('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'api_token'),params={'q': 'requests+language:python'},)
+repository = response.json()
+frame_toggl=[]
+for s in repository:
+        statement = {}
+        quarterly_is_data1 = repository[s]
+frame_toggl.append(statement)
+df_frame_toggl= pd.DataFrame(frame_toggl)
+print(df_frame_toggl)
+df_frame_toggl
